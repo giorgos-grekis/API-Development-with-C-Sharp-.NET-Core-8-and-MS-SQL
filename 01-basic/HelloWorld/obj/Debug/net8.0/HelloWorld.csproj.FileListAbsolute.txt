@@ -1,0 +1,14 @@
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\bin\Debug\net8.0\HelloWorld.exe
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\bin\Debug\net8.0\HelloWorld.deps.json
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\bin\Debug\net8.0\HelloWorld.runtimeconfig.json
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\bin\Debug\net8.0\HelloWorld.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\bin\Debug\net8.0\HelloWorld.pdb
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.AssemblyInfoInputs.cache
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.AssemblyInfo.cs
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.csproj.CoreCompileInputs.cache
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\refint\HelloWorld.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.pdb
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\HelloWorld.genruntimeconfig.cache
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\01-basic\HelloWorld\obj\Debug\net8.0\ref\HelloWorld.dll
