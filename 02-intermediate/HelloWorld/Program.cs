@@ -1,10 +1,6 @@
-﻿using System;
-using System.ComponentModel;
-using System.Data;
-using Dapper;
-using HelloWorld.Data;
+﻿using HelloWorld.Data;
 using HelloWorld.Models;
-using Microsoft.Data.SqlClient;
+
 
 namespace HelloWorld
 {
@@ -14,6 +10,7 @@ namespace HelloWorld
         {
 
             DataContextDapper dapper = new DataContextDapper();
+            DataContextEF entityFramework = new DataContextEF();
 
 
             string sqlCommand = "SELECT GETDATE()";
@@ -37,6 +34,10 @@ namespace HelloWorld
                 VideoCard = "RTX 2060"
             };
 
+            entityFramework.Add(myComputer);
+            entityFramework.SaveChanges();
+
+
             //This is usually because in some areas of the world that use a comma( , ) instead of a period( . ) as a decimal point, and MS SQL Server doesn't understand that format.
 
             // myComputer.Price.ToString("0.00", CultureInfo.InvariantCulture);
@@ -46,8 +47,6 @@ namespace HelloWorld
             This is because in some areas the date format is not recognized by MS SQL Server.*/
 
             // myComputer.Price.ToString("0.00", CultureInfo.InvariantCulture)
-
-
             string sql = @"INSERT INTO TutorialAppSchema.Computer (
               Motherboard,
                 HasWifi,
@@ -64,15 +63,14 @@ namespace HelloWorld
             + "')";
 
 
-            Console.WriteLine(sql);
-
-            bool result = dapper.ExecuteSql(sql);
-
-            Console.WriteLine(result);
+            // Console.WriteLine(sql);
+            // bool result = dapper.ExecuteSql(sql);
+            // Console.WriteLine(result);
 
 
             string sqlSelect = @"
             SELECT 
+                Computer.ComputerId,
                 Computer.Motherboard,
                 Computer.HasWifi,
                 Computer.HasLTE,
@@ -86,13 +84,32 @@ namespace HelloWorld
 
             foreach (Computer singleComputer in computers)
             {
-                Console.WriteLine("'" + singleComputer.Motherboard
+                Console.WriteLine("'" + singleComputer.ComputerId
+                                        + singleComputer.Motherboard
                                         + "','" + myComputer.HasWifi
                                         + "','" + myComputer.HasLTE
                                         + "','" + myComputer.ReleaseDate
                                         + "','" + myComputer.Price
                                         + "','" + myComputer.VideoCard
                             + "'");
+            }
+
+
+            IEnumerable<Computer>? computerEf = entityFramework.Computer?.ToList<Computer>();
+
+            if (computerEf != null)
+            {
+                foreach (Computer singleComputer in computerEf)
+                {
+                    Console.WriteLine("'" + singleComputer.ComputerId
+                                         + singleComputer.Motherboard
+                                            + "','" + myComputer.HasWifi
+                                            + "','" + myComputer.HasLTE
+                                            + "','" + myComputer.ReleaseDate
+                                            + "','" + myComputer.Price
+                                            + "','" + myComputer.VideoCard
+                                + "'");
+                }
             }
 
 
