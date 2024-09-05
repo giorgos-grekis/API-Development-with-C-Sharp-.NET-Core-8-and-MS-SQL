@@ -1,4 +1,9 @@
-﻿using HelloWorld.Models;
+﻿using System.Text.Json;
+using HelloWorld.Data;
+using HelloWorld.Models;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 
 namespace HelloWorld
@@ -7,6 +12,9 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
+            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+            DataContextDapper dapper = new DataContextDapper(config);
 
             Computer myComputer = new Computer()
             {
@@ -28,33 +36,86 @@ namespace HelloWorld
             This is because in some areas the date format is not recognized by MS SQL Server.*/
 
             // myComputer.Price.ToString("0.00", CultureInfo.InvariantCulture)
-            string sql = @"INSERT INTO TutorialAppSchema.Computer (
+            // string sql = @"INSERT INTO TutorialAppSchema.Computer (
+            //   Motherboard,
+            //     HasWifi,
+            //     HasLTE,
+            //     ReleaseDate,
+            //     Price,
+            //     VideoCard
+            // ) VALUES ('" + myComputer.Motherboard
+            //             + "','" + myComputer.HasWifi
+            //             + "','" + myComputer.HasLTE
+            //             + "','" + myComputer.ReleaseDate
+            //             + "','" + myComputer.Price
+            //             + "','" + myComputer.VideoCard
+            // + "')";
+
+
+            // File.WriteAllText("log.txt", sql);
+            // using StreamWriter openFile = new("log.txt", append: true);
+
+            // openFile.WriteLine(sql + "\n");
+
+            // openFile.Close();
+
+            string computersJson = File.ReadAllText("Computers.json");
+
+
+
+            IEnumerable<Computer>? computersNewtonsoft = JsonConvert.DeserializeObject<IEnumerable<Computer>>(computersJson);
+
+            JsonSerializerOptions options = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            IEnumerable<Computer>? computersSystem = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Computer>>(computersJson, options);
+
+
+            if (computersNewtonsoft != null)
+            {
+                foreach (Computer computer in computersNewtonsoft)
+                {
+                    // Console.WriteLine(computer.Motherboard);
+                    string sql = @"INSERT INTO TutorialAppSchema.Computer (
               Motherboard,
                 HasWifi,
                 HasLTE,
                 ReleaseDate,
                 Price,
                 VideoCard
-            ) VALUES ('" + myComputer.Motherboard
-                        + "','" + myComputer.HasWifi
-                        + "','" + myComputer.HasLTE
-                        + "','" + myComputer.ReleaseDate
-                        + "','" + myComputer.Price
-                        + "','" + myComputer.VideoCard
+            ) VALUES ('" + EscapeSingleQuote(computer.Motherboard)
+                        + "','" + computer.HasWifi
+                        + "','" + computer.HasLTE
+                        + "','" + computer.ReleaseDate
+                        + "','" + computer.Price
+                        + "','" + EscapeSingleQuote(computer.VideoCard)
             + "')";
 
+                    dapper.ExecuteSql(sql);
+                }
+            }
 
-            // File.WriteAllText("log.txt", sql);
-            using StreamWriter openFile = new("log.txt", append: true);
+            JsonSerializerSettings settings = new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
 
-            openFile.WriteLine(sql + "\n");
+            string computerCopyNewtonsoft = JsonConvert.SerializeObject(computersNewtonsoft, settings);
 
-            openFile.Close();
+            File.WriteAllText("computersCopyNewtonsoft.txt", computerCopyNewtonsoft);
 
-            string fileText = File.ReadAllText("log,txt");
+            string computerCopySystem = System.Text.Json.JsonSerializer.Serialize(computersSystem, options);
 
-            Console.WriteLine(File.ReadAllText("log.txt"));
+            File.WriteAllText("computerCopySystem.txt", computerCopySystem);
+        }
 
+        static string EscapeSingleQuote(string input)
+        {
+            string output = input.Replace("'", "''");
+
+            return output;
         }
     }
 }
