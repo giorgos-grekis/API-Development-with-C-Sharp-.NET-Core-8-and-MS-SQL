@@ -1,15 +1,26 @@
 using System.Data;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace HelloWorld.Data
 {
     public class DataContextDapper
     {
-        // create a connection
-        private string _connectionString = @"Server=localhost\MSSQLSERVER01;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=true;";
+        // private IConfiguration _config;
+        private string _connectionString = "";
+        public DataContextDapper(IConfiguration config)
+        {
+            // _config = config;
+#pragma warning disable CS8601 // Possible null reference assignment.
+            _connectionString = config.GetConnectionString("DefaulConnextion");
+#pragma warning restore CS8601 // Possible null reference assignment.
+        }
 
-        // string connectionStringLinuxMac = @"Server=localhost\MSSQLSERVER01;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=false;User_Id=sa;Password=SQLConnect1;";
+        // create a connection
+        // private string _connectionString = @"Server=localhost\MSSQLSERVER01;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=true;";
+
+        // string connectionStringLinuxMac  @"Server=localhost\MSSQLSERVER01;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=false;User_Id=sa;Password=SQLConnect1;";
 
         public IEnumerable<T> LoadData<T>(string sql)
         {

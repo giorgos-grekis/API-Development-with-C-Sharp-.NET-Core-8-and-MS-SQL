@@ -68,3 +68,9 @@ C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\Hel
 C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\obj\Debug\net8.0\HelloWorld.csproj.AssemblyReference.cache
 C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\obj\Debug\net8.0\HelloWorld.csproj.Up2Date
 C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\obj\Debug\net8.0\HelloWorld.sourcelink.json
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
