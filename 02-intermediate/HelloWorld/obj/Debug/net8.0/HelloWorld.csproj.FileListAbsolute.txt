@@ -76,3 +76,4 @@ C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\Hel
 C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\appsettings.json
 C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\GiorgosGrekis\Desktop\dotnet-core-8-course\lectures\02-intermediate\HelloWorld\bin\Debug\net8.0\AutoMapper.dll
