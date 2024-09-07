@@ -13,7 +13,7 @@ namespace HelloWorld.Data
         {
             // _config = config;
 #pragma warning disable CS8601 // Possible null reference assignment.
-            _connectionString = config.GetConnectionString("DefaulConnextion");
+            _connectionString = config.GetConnectionString("DefaultConnection");
 #pragma warning restore CS8601 // Possible null reference assignment.
         }
 

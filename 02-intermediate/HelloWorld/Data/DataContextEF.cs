@@ -19,7 +19,7 @@ namespace HelloWorld.Data
             // base.OnConfiguring(options);
             if (!options.IsConfigured)
             {
-                options.UseSqlServer(_config.GetConnectionString("DefaulConnextion"), options => options.EnableRetryOnFailure());
+                options.UseSqlServer(_config.GetConnectionString("DefaultConnection"), options => options.EnableRetryOnFailure());
             }
         }
 
